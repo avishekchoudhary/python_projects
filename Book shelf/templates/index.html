@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Virtual Bookshelf {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Virtual Bookshelf</h1>
+    <ul>
+        {%if book_data|count == 0 :%}     
+        <li>No Book in the shelf yet.</li>
+        {% else: %}
+        {% for book in book_data: %}
+        <li><a href="{{url_for('delete',id=book.id)}}">Delete</a>////{{book.title}}-{{book.author}}-{{book.rating}}////<a href="{{url_for('edit',id=book.id)}}">Edit Ratings</a>></li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    <a href="{{url_for('add')}}">Add Book</a>
+</div>
+
+{% endblock %}

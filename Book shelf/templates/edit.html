@@ -1,0 +1,25 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title %} Virtual Bookshelf {% endblock %}
+
+{% block content %}
+<div class="container">
+    <p>Title-{{book.title}}</p>
+    <br>
+    <p>Rating-{{book.rating}}</p>
+    <br>
+    <form action="{{url_for('edit')}}" method="POST">
+        <select name="rating" >
+            <option value="⭐">⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          </select>
+          <input type="hidden" name=b_id value={{book.id}} required>
+          <button type="submit">Edit</button>
+    </form>
+</div>
+
+{% endblock %}

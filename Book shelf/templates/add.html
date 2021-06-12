@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Add Book to Shelf {% endblock %}
+
+{%block content%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-8">
+            <h1>Add your book Here.</h1>
+            {{wtf.quick_form(b_form)}}
+        </div>
+    </div>
+    <p class="space-above"><a href="{{url_for('home')}}">See your Collection</a></p>
+</div>
+
+{% endblock %}
