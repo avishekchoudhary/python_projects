@@ -15,7 +15,7 @@ from wtforms.validators import DataRequired, InputRequired
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = '#'
 Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies-collection.db'
@@ -83,7 +83,7 @@ def add():
     if request.method == "POST" and add_form.validate_on_submit():
         movie = add_form.movie_name.data
         parameter={
-            "api_key":'9ce920a9268394c054a98cad0b70abb6',
+            "api_key":'#',
             "query":movie
         }
         response = requests.get(url="https://api.themoviedb.org/3/search/movie",params=parameter)
@@ -95,7 +95,7 @@ def add():
 @app.route("/select")
 def select():
     movie_id = request.args.get("id")
-    response = requests.get(url=f"https://api.themoviedb.org/3/movie/{movie_id}",params={"api_key":'9ce920a9268394c054a98cad0b70abb6'})
+    response = requests.get(url=f"https://api.themoviedb.org/3/movie/{movie_id}",params={"api_key":'#'})
     response.raise_for_status()
     data = response.json()
     new_movie = Movie(
