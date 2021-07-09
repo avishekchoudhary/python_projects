@@ -41,9 +41,9 @@ driver.switch_to.window(fb_window)
 email = driver.find_element_by_name("email")
 passwd = driver.find_element_by_name("pass")
 
-email.send_keys("souravkoundal45@gmail.com")
+email.send_keys("#")
 time.sleep(2)
-passwd.send_keys("savechanges")
+passwd.send_keys("#")
 
 passwd.send_keys(Keys.RETURN)
 
